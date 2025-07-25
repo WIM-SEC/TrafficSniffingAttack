@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通信盗聴攻撃体験アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <h1>通信盗聴攻撃体験アプリ</h1>
+        <p class="description">
+            公衆Wi-Fiや非暗号化通信の利用が、いかに簡単に情報を盗聴されるリスクがあるかを体験します。<br>
+            特にVPNがあなたの通信をどのように保護するかを攻撃者の視点から確認しましょう。
+        </p>
+
+        <div class="main-content-area">
+            <div class="user-panel">
+                <h2>あなたの操作</h2>
+                <div class="connection-status">
+                    現在の接続: <span id="current-connection">Free Wi-Fi (暗号化なし)</span>
+                </div>
+                <div class="connection-buttons">
+                    <button id="connect-free-wifi" class="conn-btn active" data-type="free-unencrypted">Free Wi-Fi (暗号化なし)</button>
+                    <button id="connect-home-wifi" class="conn-btn" data-type="home-encrypted">自宅Wi-Fi (暗号化あり)</button>
+                    <button id="toggle-vpn" class="conn-btn" data-type="vpn">VPNをON/OFF</button>
+                </div>
+
+                <div class="form-section login-section">
+                    <h3>ログイン情報を入力</h3>
+                    <div class="form-inputs">
+                        <input type="text" id="un-input" placeholder="ユーザー名 (testuser)">
+                        <input type="text" id="ps-input" placeholder="パスワード (password123)">
+                    </div>
+                    <div class="form-buttons">
+                        <button id="login-http-btn" class="form-btn" data-action="login-http">ログイン (HTTP)</button>
+                        <button id="login-https-btn" class="form-btn" data-action="login-https">ログイン (HTTPS)</button>
+                    </div>
+                </div>
+
+                <div class="form-section cc-section">
+                    <h3>お買い物サイトでのお支払い</h3>
+                    <div class="form-inputs">
+                        <input type="text" id="cc-input" placeholder="カード番号 (1234-...)">
+                        <input type="text" id="cvv-input" placeholder="CVV (123)">
+                    </div>
+                    <div class="form-buttons">
+                        <button id="purchase-http-btn" class="form-btn" data-action="purchase-http">購入を確定 (HTTP)</button>
+                        <button id="purchase-https-btn" class="form-btn" data-action="purchase-https">購入を確定 (HTTPS)</button>
+                    </div>
+                </div>
+                </div>
+
+            <div class="attacker-panel">
+                <h2>攻撃者コンソール</h2>
+                <div class="packet-filter">
+                    <input type="text" id="filter-input" placeholder="パケットフィルタ (例: password, bank)">
+                    <button id="apply-filter-btn">適用</button>
+                    <button id="clear-filter-btn">クリア</button>
+                </div>
+                <div id="packet-log" class="packet-log">
+                    </div>
+            </div>
+        </div>
+
+        <div id="message-area" class="message-display">
+            操作を開始してください。
+        </div>
+
+        <button id="reset-button" class="action-button reset-btn">リセット</button>
+    </div>
+
+    <script src="script.js"></script>
+    <footer class="main-footer">
+        <div>©WIM-CC 2022-2025 <a href="https://w-haruto.wim-cc.com/works/license/" target="_blank">利用規約</a></div>
+        <div>通信盗聴攻撃体験アプリ（2025.07.25）</div>
+    </footer>
+</body>
+</html>
